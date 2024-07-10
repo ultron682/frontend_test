@@ -13,4 +13,9 @@ import { MainModule } from './components/main/main.module';
 })
 export class AppComponent {
   title = 'pomyslna-rekrutacja';
+  showPersonalDataContent = false;
+
+  showPersonalData(){
+    this.showPersonalDataContent = true;
+  }
 }

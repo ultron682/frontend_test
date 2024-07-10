@@ -1,0 +1,17 @@
+@import "../../../../../utilities/constants";
+
+main {
+  padding-top: $footer-height;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: calc(100vh - $footer-height);
+
+}
+
+@media (max-width: 960px) {
+  main {
+      flex-direction: column;
+      align-items: center;
+  }
+}
