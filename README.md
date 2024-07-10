@@ -9,7 +9,6 @@ W katalogu znajdziesz projekt graficzny. Prosimy Ciê o jego pociêcie oraz napisa
 
 
 ### CEL
-
 - Pociêta strona ma wype³niaæ ca³e okno przegl¹darki (nie zamykaæ contentu w kontenerze o sta³ej szerokoœci). Przy reponsywnoœci mo¿esz zastosowaæ dowolne breakpointy, samemu uznaj jak bêdzie najlepiej.
 
 - Header powinien byæ na sta³e przyklejony do topu, Logo HTML5 w headerze powinno linkowaæ do '/' .  
