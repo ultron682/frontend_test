@@ -12,10 +12,6 @@ export class MainDescriptionComponent implements OnInit {
   headerText = "Blok z długą nazwą która sama się przytnie i tego nie powinno być już widać";
 
   constructor(private mainContentService: MainContentService) {
-    this.mainContentService.getContentsNoEmpty().subscribe((data) => {
-      this.contents = data;
-    });
-
     this.mainContentService.workspaceContentsChange.subscribe((data) => {
       this.contents = data;
       console.log("podmianka" + this.contents);

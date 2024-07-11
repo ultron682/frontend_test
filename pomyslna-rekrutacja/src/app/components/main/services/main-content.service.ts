@@ -5,7 +5,7 @@ import { catchError } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Option } from "../enums/options";
-import { Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -13,20 +13,21 @@ import { Subject } from "rxjs";
 export class MainContentService {
   private jsonURL = "content.json";
   private downloadedContent: Row[] = [];
-  private workspaceContent = new Subject<Row[]>();
-  workspaceContentsChange = new EventEmitter<Row[]>();
+  private workspaceContent: BehaviorSubject<Row[]> = new BehaviorSubject<Row[]>(
+    []
+  );
+  workspaceContentsChange = this.workspaceContent.asObservable();
   selectedOption: Option = Option.None;
 
   constructor(private http: HttpClient) {
     this.loadContent();
 
-    this.workspaceContent.subscribe((data) => {
-      this.workspaceContentsChange.emit(data);
+    this.workspaceContentsChange.subscribe((data) => {
+      if (data.length == 0) return;
 
-      localStorage.setItem(
-        "workspaceContent",
-        JSON.stringify(this.workspaceContent)
-      );
+      localStorage.setItem("workspaceContent", JSON.stringify(data));
+
+      console.log("Zawartość zapisana", data);
     });
   }
 
@@ -39,14 +40,9 @@ export class MainContentService {
       this.downloadedContent = JSON.parse(
         localStorage.getItem("downloadedContent")!
       );
-      this.workspaceContent = JSON.parse(
-        localStorage.getItem("workspaceContent")!
+      this.workspaceContent.next(
+        JSON.parse(localStorage.getItem("workspaceContent")!)
       );
-      console.log(
-        "Zawartość załadowana z pamięci podręcznej",
-        this.downloadedContent
-      );
-      // this.workspaceContentsChange.emit(this.workspaceContent);
     }
   }
 
@@ -69,8 +65,9 @@ export class MainContentService {
       )
       .subscribe((data) => {
         this.downloadedContent = data;
-        this.workspaceContent = this.downloadedContent.filter(
-          (row) => row.id % 2 === 0
+
+        this.workspaceContent.next(
+          this.downloadedContent.filter((row) => row.id % 2 === 0)
         ); // dodanie kilku wierszy do workspaceContent na start
 
         localStorage.setItem(
@@ -83,13 +80,6 @@ export class MainContentService {
       });
   }
 
-  // todo: remove this method
-  getContentsNoEmpty(): Observable<Row[]> {
-    return new Observable((observer) => {
-      observer.next(this.downloadedContent);
-    });
-  }
-
   getNextRow(): Row | undefined {
     if (this.selectedOption == Option.First) {
       return this.downloadedContent[0];
@@ -97,57 +87,55 @@ export class MainContentService {
       return this.downloadedContent[1];
     } else if (this.selectedOption == Option.Random) {
       var randomOptions = this.downloadedContent.filter(
-        (obj1) => !this.workspaceContent.some((obj2) => obj1.id === obj2.id)
+        (obj1) =>
+          !this.workspaceContent.getValue().some((obj2) => obj1.id === obj2.id)
       );
 
       if (randomOptions.length > 0) {
         const randomIndex = Math.floor(Math.random() * randomOptions.length);
         return randomOptions[randomIndex];
       }
-
-      return undefined;
-    } else {
-      return undefined;
     }
-  }
 
-  onNewContent(): void {
-    if (this.workspaceContent.length == 0) {
-      this.appendContent();
-    } else {
-      this.replaceContent();
-    }
+    return undefined;
   }
 
   appendContent(): void {
-    var newContent = this.getNextRow();
-    if (newContent === undefined) return;
-
-    console.log("Nowa zawartość", newContent);
-    if (newContent == undefined) {
+    if (this.selectedOption == Option.None) {
       alert("Nie wybrano opcji");
       return;
     }
 
-    this.workspaceContent.push(newContent);
-    localStorage.setItem(
-      "workspaceContent",
-      JSON.stringify(this.downloadedContent)
-    );
-    this.workspaceContentsChange.emit(this.workspaceContent);
-    console.log("Zawartość dodana", this.downloadedContent);
+    var newContent = this.getNextRow();
+
+    if (newContent == undefined) {
+      alert("Brak możliwości dodania nowej zawartości");
+      return;
+    }
+
+    this.workspaceContent.next([
+      ...this.workspaceContent.getValue(),
+      newContent,
+    ]);
   }
 
   replaceContent(): void {
-    var newContent = this.getNextRow();
-    if (newContent === undefined) return;
+    if (this.selectedOption == Option.None) {
+      alert("Nie wybrano opcji");
+      return;
+    }
 
-    this.workspaceContent = [newContent];
+    var newContent = this.getNextRow();
+    if (newContent === undefined) {
+      alert("Brak możliwości dodania nowej zawartości");
+      return;
+    }
+
+    this.workspaceContent.next([newContent]);
     localStorage.setItem(
       "workspaceContent",
       JSON.stringify(this.downloadedContent)
     );
-    this.workspaceContentsChange.emit(this.workspaceContent);
   }
 
   setSelectedOption(option: Option): void {
