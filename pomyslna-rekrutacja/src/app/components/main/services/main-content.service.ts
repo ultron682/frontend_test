@@ -5,32 +5,48 @@ import { catchError } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Option } from "../enums/options";
+import { Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class MainContentService {
   private jsonURL = "content.json";
-  private downloadedContents: Row[] = [];
-  downloadedContentsChange = new EventEmitter<Row[]>();
+  private downloadedContent: Row[] = [];
+  private workspaceContent = new Subject<Row[]>();
+  workspaceContentsChange = new EventEmitter<Row[]>();
   selectedOption: Option = Option.None;
 
   constructor(private http: HttpClient) {
     this.loadContent();
+
+    this.workspaceContent.subscribe((data) => {
+      this.workspaceContentsChange.emit(data);
+
+      localStorage.setItem(
+        "workspaceContent",
+        JSON.stringify(this.workspaceContent)
+      );
+    });
   }
 
   // w zadaniu trzeba było zaimplementować zapis przez localStorage, ale normalnie użyłbym ngrx
   private loadContent(): void {
-    if (localStorage.getItem("content") == null) {
+    if (localStorage.getItem("downloadedContent") == null) {
       this.downloadContent();
     } else {
-      console.log(JSON.parse(localStorage.getItem("content")!));
-      this.downloadedContents = JSON.parse(localStorage.getItem("content")!);
+      console.log(JSON.parse(localStorage.getItem("downloadedContent")!));
+      this.downloadedContent = JSON.parse(
+        localStorage.getItem("downloadedContent")!
+      );
+      this.workspaceContent = JSON.parse(
+        localStorage.getItem("workspaceContent")!
+      );
       console.log(
         "Zawartość załadowana z pamięci podręcznej",
-        this.downloadedContents
+        this.downloadedContent
       );
-      this.downloadedContentsChange.emit(this.downloadedContents);
+      // this.workspaceContentsChange.emit(this.workspaceContent);
     }
   }
 
@@ -52,59 +68,86 @@ export class MainContentService {
         )
       )
       .subscribe((data) => {
-        this.downloadedContents = data;
+        this.downloadedContent = data;
+        this.workspaceContent = this.downloadedContent.filter(
+          (row) => row.id % 2 === 0
+        ); // dodanie kilku wierszy do workspaceContent na start
+
         localStorage.setItem(
-          "content",
-          JSON.stringify(this.downloadedContents)
+          "downloadedContent",
+          JSON.stringify(this.downloadedContent)
         );
-        console.log("Zawartość pobrana i zapisana", this.downloadedContents);
-        this.downloadedContentsChange.emit(this.downloadedContents);
+
+        console.log("Zawartość pobrana i zapisana", this.downloadedContent);
+        // this.workspaceContentsChange.emit(this.workspaceContent);
       });
   }
 
   // todo: remove this method
   getContentsNoEmpty(): Observable<Row[]> {
     return new Observable((observer) => {
-      observer.next(this.downloadedContents);
+      observer.next(this.downloadedContent);
     });
   }
 
-  getNextRow(): Row {
+  getNextRow(): Row | undefined {
     if (this.selectedOption == Option.First) {
-      return this.downloadedContents[0];
+      return this.downloadedContent[0];
     } else if (this.selectedOption == Option.Second) {
-      return this.downloadedContents[1];
+      return this.downloadedContent[1];
     } else if (this.selectedOption == Option.Random) {
-      const randomIndex = Math.floor(
-        Math.random() * this.downloadedContents.length
+      var randomOptions = this.downloadedContent.filter(
+        (obj1) => !this.workspaceContent.some((obj2) => obj1.id === obj2.id)
       );
-      return this.downloadedContents[randomIndex];
+
+      if (randomOptions.length > 0) {
+        const randomIndex = Math.floor(Math.random() * randomOptions.length);
+        return randomOptions[randomIndex];
+      }
+
+      return undefined;
     } else {
-      return {
-        id: 0,
-        content: "",
-      };
+      return undefined;
     }
   }
 
-  appendContent(content: string): void {
-    var newContent: Row = {
-      id: this.downloadedContents.length + 1,
-      content,
-    };
-
-    this.downloadedContents.push(newContent);
-    localStorage.setItem("content", JSON.stringify(this.downloadedContents));
-    this.downloadedContentsChange.emit(this.downloadedContents);
-    console.log("Zawartość dodana", this.downloadedContents);
+  onNewContent(): void {
+    if (this.workspaceContent.length == 0) {
+      this.appendContent();
+    } else {
+      this.replaceContent();
+    }
   }
 
-  replaceContent(content: string): void {
-    var newContent: Row = this.getNextRow();
+  appendContent(): void {
+    var newContent = this.getNextRow();
+    if (newContent === undefined) return;
 
-    this.downloadedContents = [newContent];
-    localStorage.setItem("content", JSON.stringify(this.downloadedContents));
-    this.downloadedContentsChange.emit(this.downloadedContents);
+    console.log("Nowa zawartość", newContent);
+    if (newContent == undefined) {
+      alert("Nie wybrano opcji");
+      return;
+    }
+
+    this.workspaceContent.push(newContent);
+    localStorage.setItem(
+      "workspaceContent",
+      JSON.stringify(this.downloadedContent)
+    );
+    this.workspaceContentsChange.emit(this.workspaceContent);
+    console.log("Zawartość dodana", this.downloadedContent);
+  }
+
+  replaceContent(): void {
+    var newContent = this.getNextRow();
+    if (newContent === undefined) return;
+
+    this.workspaceContent = [newContent];
+    localStorage.setItem(
+      "workspaceContent",
+      JSON.stringify(this.downloadedContent)
+    );
+    this.workspaceContentsChange.emit(this.workspaceContent);
   }
 
   setSelectedOption(option: Option): void {

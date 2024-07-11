@@ -7,18 +7,16 @@ import { MainContentService } from '../../services/main-content.service';
   styleUrls: ['./main-tools.component.scss']
 })
 export class MainToolsComponent implements OnInit {
-  content: string = '';
-
   constructor(private contentService: MainContentService) { }
 
   ngOnInit() {
   }
 
   replaceContent() {
-
+    this.contentService.replaceContent();
   }
 
   appendContent() {
-    this.contentService.appendContent('asdasd');
+    this.contentService.appendContent();
   }
 }

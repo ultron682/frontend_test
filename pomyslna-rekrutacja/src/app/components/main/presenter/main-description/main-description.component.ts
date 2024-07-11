@@ -16,7 +16,7 @@ export class MainDescriptionComponent implements OnInit {
       this.contents = data;
     });
 
-    this.mainContentService.downloadedContentsChange.subscribe((data) => {
+    this.mainContentService.workspaceContentsChange.subscribe((data) => {
       this.contents = data;
       console.log("podmianka" + this.contents);
     });
