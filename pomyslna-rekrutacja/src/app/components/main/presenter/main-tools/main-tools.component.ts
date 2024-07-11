@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-tools.component.scss']
 })
 export class MainToolsComponent implements OnInit {
+  content: string = '';
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  replaceContent() {
+
+  }
+
+  appendContent() {
+
+  }
 }

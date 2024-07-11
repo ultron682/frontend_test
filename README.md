@@ -2,57 +2,58 @@
 
 Witaj,
 
-Prosimy Ci˜ o wykonanie poni˜szego zadania najlepiej jak tylko umiesz. Pozwoli to nam lepiej oceni˜ Twoje umiej˜tno˜ci :)
+Prosimy CiÄ™ o wykonanie poniÅ¼szego zadania najlepiej jak tylko umiesz. Pozwoli to nam lepiej oceniÄ‡ Twoje umiejÄ™tnoÅ›ci :)
 
 ## OPIS
-W katalogu znajdziesz projekt graficzny. Prosimy Ci˜ o jego poci˜cie oraz napisanie funkcjonalno˜ci dla poszczeg˜lnych element˜w. Swoje prace r˜b jako fork tego repozytorium.
+W katalogu znajdziesz projekt graficzny. Prosimy CiÄ™ o jego pociÄ™cie oraz napisanie funkcjonalnoÅ›ci dla poszczegÃ³lnych elementÃ³w. Swoje prace rÃ³b jako fork tego repozytorium.
 
 
 ### CEL
-- Poci˜ta strona ma wype˜nia˜ ca˜e okno przegl˜darki (nie zamyka˜ contentu w kontenerze o sta˜ej szeroko˜ci). Przy reponsywno˜ci mo˜esz zastosowa˜ dowolne breakpointy, samemu uznaj jak b˜dzie najlepiej.
 
-- Header powinien by˜ na sta˜e przyklejony do topu, Logo HTML5 w headerze powinno linkowa˜ do '/' .  
+- PociÄ™ta strona ma wypeÅ‚niaÄ‡ caÅ‚e okno przeglÄ…darki (nie zamykaÄ‡ contentu w kontenerze o staÅ‚ej szerokoÅ›ci). Przy reponsywnoÅ›ci moÅ¼esz zastosowaÄ‡ dowolne breakpointy, samemu uznaj jak bÄ™dzie najlepiej.
 
-- Stopka strony w przypadku ma˜ej ilo˜ci tre˜ci w contencie powinna i tak by˜ na samym dole strony a nie 'dokleja˜' si˜ pod contentem.
+- Header powinien byÄ‡ na staÅ‚e przyklejony do topu, Logo HTML5 w headerze powinno linkowaÄ‡ do '/' .  
 
-- W bloku pierwszym s˜ radiobuttony, ich wyb˜r a nast˜pnie klikni˜cie przycisku w bloku drugim wykona akcj˜ podmiany lub doklejenia tekstu w bloku ostatnim. Tre˜ci kt˜re maj˜ zosta˜ u˜yte nale˜y pobra˜ z JSONa (szczeg˜y ni˜ej). Opcja pierwsza wybierze zawsze tre˜˜ pierwsz˜, opcja druga drug˜ a opcja losowa dowoln˜ z pozosta˜ych. Ka˜da osobna tre˜˜ w ostatnim bloku powinna by˜ obj˜ta tagiem <article>. Doklejaj˜c tre˜˜ nale˜y unikn˜˜ powielania ju˜ istniej˜cej tre˜ci (w przypadku u˜ycia opcji losowej nale˜y wylosowa˜ kolejn˜ jeszcze nie u˜yt˜ tre˜˜). 
+- Stopka strony w przypadku maÅ‚ej iloÅ›ci treÅ›ci w contencie powinna i tak byÄ‡ na samym dole strony a nie 'doklejaÄ‡' siÄ™ pod contentem.
 
-- Button 'poka˜' w footerze po klikni˜ciu pokazuje ramk˜ (wysuwa j˜ spod footera) z 2 klikalnymi opcjami. Pierwsza przywraca stron˜ do pocz˜tkowych ustawie˜, druga w headerze dokleja Twoje imi˜ i nazwisko.
+- W bloku pierwszym sÄ… radiobuttony, ich wybÃ³r a nastÄ™pnie klikniÄ™cie przycisku w bloku drugim wykona akcjÄ™ podmiany lub doklejenia tekstu w bloku ostatnim. TreÅ›ci ktÃ³re majÄ… zostaÄ‡ uÅ¼yte naleÅ¼y pobraÄ‡ z JSONa (szczegÃ³Å‚y niÅ¼ej). Opcja pierwsza wybierze zawsze treÅ›Ä‡ pierwszÄ…, opcja druga drugÄ… a opcja losowa dowolnÄ… z pozostaÅ‚ych. KaÅ¼da osobna treÅ›Ä‡ w ostatnim bloku powinna byÄ‡ objÄ™ta tagiem <article>. DoklejajÄ…c treÅ›Ä‡ naleÅ¼y uniknÄ…Ä‡ powielania juÅ¼ istniejÄ…cej treÅ›ci (w przypadku uÅ¼ycia opcji losowej naleÅ¼y wylosowaÄ‡ kolejnÄ… jeszcze nie uÅ¼ytÄ… treÅ›Ä‡). 
+
+- Button 'pokaÅ¼' w footerze po klikniÄ™ciu pokazuje ramkÄ™ (wysuwa jÄ… spod footera) z 2 klikalnymi opcjami. Pierwsza przywraca stronÄ™ do poczÄ…tkowych ustawieÅ„, druga w headerze dokleja Twoje imiÄ™ i nazwisko.
 
 
 ### PLIK JSON
-Zbudowa˜ plik z tablic˜ przynajmniej 6 element˜w zawieraj˜cych dowoln˜ tre˜˜. Wolno w JSONie trzyma˜ dodatkowe dane je˜eli upro˜ci to wykonanie zadania.
+ZbudowaÄ‡ plik z tablicÄ… przynajmniej 6 elementÃ³w zawierajÄ…cych dowolnÄ… treÅ›Ä‡. Wolno w JSONie trzymaÄ‡ dodatkowe dane jeÅ¼eli uproÅ›ci to wykonanie zadania.
 
 
 ### WARUNKI
-- Nie u˜ywa˜ bootstrapa/tailwinda ani innych podobnych framework˜w.
-- Zastosowa˜ SCSS.
-- Poni˜ej 960px wed˜ug uznania dokona˜ zmian w projekcie by jak najlepiej przedstawi˜ stron˜ (najlepiej wykorzysta˜ przyk˜ad projektu mobilnego).
+- Nie uÅ¼ywaÄ‡ bootstrapa/tailwinda ani innych podobnych frameworkÃ³w.
+- ZastosowaÄ‡ SCSS.
+- PoniÅ¼ej 960px wedÅ‚ug uznania dokonaÄ‡ zmian w projekcie by jak najlepiej przedstawiÄ‡ stronÄ™ (najlepiej wykorzystaÄ‡ przykÅ‚ad projektu mobilnego).
 
 
 ### DODATKOWE PLUSY
-- Osadzenie ca˜ego zadania w jakim˜ JSowym frameworku (najlepiej Angular).
-- Brak plik˜w graficznych w ko˜cowym projekcie (brak plik˜w typu jpg, gif, png, svg).
-- CSS IS AWESOME w footerze - po najechaniu myszk˜ ramka (bez tekstu) powinna wykona˜ animowany obr˜t.
+- Osadzenie caÅ‚ego zadania w jakimÅ› JSowym frameworku (najlepiej Angular).
+- Brak plikÃ³w graficznych w koÅ„cowym projekcie (brak plikÃ³w typu jpg, gif, png, svg).
+- CSS IS AWESOME w footerze - po najechaniu myszkÄ… ramka (bez tekstu) powinna wykonaÄ‡ animowany obrÃ³t.
 - Zastosowanie BEM.
-- Spe˜nianie zasad a11y.
-- Logiczne wykorzystanie jednostek rem, em, vh, vw (w efekcie jak najmniejsze u˜ycie jednostki px) - w taki spos˜b by w efekcie responsywno˜˜ spe˜niona zosta˜a jak najmniejsz˜ ilo˜ci˜ kodu.
+- SpeÅ‚nianie zasad a11y.
+- Logiczne wykorzystanie jednostek rem, em, vh, vw (w efekcie jak najmniejsze uÅ¼ycie jednostki px) - w taki sposÃ³b by w efekcie responsywnoÅ›Ä‡ speÅ‚niona zostaÅ‚a jak najmniejszÄ… iloÅ›ciÄ… kodu.
 - Mobile first.
-- Doklejaj˜c tre˜˜ sprawi˜ by w ostatnim bloku tre˜ci by˜y posortowane alfabetycznie.
-- Przy doklejaniu tre˜ci w przypadku niemo˜liwo˜ci spe˜nienia warunku by by˜a unikalna wy˜wietli˜ stosowny komunikat (np. alert/dialog/modal).
-- Button w footerze ("poka˜") wysuwaj˜cy ramk˜ bez u˜ycia JSa.
-- Rezultat prac wrzuci˜ do podgl˜du na jak˜˜ darmow˜ platform˜ (np. netlify/heroku).
+- DoklejajÄ…c treÅ›Ä‡ sprawiÄ‡ by w ostatnim bloku treÅ›ci byÅ‚y posortowane alfabetycznie.
+- Przy doklejaniu treÅ›ci w przypadku niemoÅ¼liwoÅ›ci speÅ‚nienia warunku by byÅ‚a unikalna wyÅ›wietliÄ‡ stosowny komunikat (np. alert/dialog/modal).
+- Button w footerze ("pokaÅ¼") wysuwajÄ…cy ramkÄ™ bez uÅ¼ycia JSa.
+- Rezultat prac wrzuciÄ‡ do podglÄ…du na jakÄ…Å› darmowÄ… platformÄ™ (np. netlify/heroku).
 
 
 ### ZADANIE NA 6 :)
-- Wykorzysta˜ localStorage do za˜adowania tre˜ci z pliku i ich p˜niejszego przechowywania oraz napisa˜ dodatkow˜ funkcjonalno˜˜ pozwalaj˜c˜ na zarz˜dzanie nimi (dodawanie/edycja/usuwanie).
+- WykorzystaÄ‡ localStorage do zaÅ‚adowania treÅ›ci z pliku i ich pÃ³Åºniejszego przechowywania oraz napisaÄ‡ dodatkowÄ… funkcjonalnoÅ›Ä‡ pozwalajÄ…cÄ… na zarzÄ…dzanie nimi (dodawanie/edycja/usuwanie).
 
 
 ## UWAGI
-Projekt nie musi by˜ 'pixel perfect'. Z uwagi na brak pliku ˜r˜d˜owego a jedynie jpg nale˜y wymiary samemu zmierzy˜. Ale przyk˜adowo je˜eli jaki˜ element po zmierzeniu wydaje si˜ ˜e ma 139px to dobr˜ praktyk˜ b˜dzie zaokr˜gli˜ go do 140px. U˜yty w projekcie font to OpenSans.
+Projekt nie musi byÄ‡ 'pixel perfect'. Z uwagi na brak pliku ÅºrÃ³dÅ‚owego a jedynie jpg naleÅ¼y wymiary samemu zmierzyÄ‡. Ale przykÅ‚adowo jeÅ¼eli jakiÅ› element po zmierzeniu wydaje siÄ™ Å¼e ma 139px to dobrÄ… praktykÄ… bÄ™dzie zaokrÄ…gliÄ‡ go do 140px. UÅ¼yty w projekcie font to OpenSans.
 
 
-## WYSY˜KA PRACY
-Nale˜y przes˜a˜ link do swojego repozytorium z rozwi˜zaniem. Dodatkowo wrzu˜ dokument tekstowy z list˜ rzeczy kt˜rych nie uda˜o si˜ wykona˜ z cel˜w g˜˜wnych oraz list˜ rzeczy kt˜re zrobiono dodatkowo.
+## WYSYÅKA PRACY
+NaleÅ¼y przesÅ‚aÄ‡ link do swojego repozytorium z rozwiÄ…zaniem. Dodatkowo wrzuÄ‡ dokument tekstowy z listÄ… rzeczy ktÃ³rych nie udaÅ‚o siÄ™ wykonaÄ‡ z celÃ³w gÅ‚Ã³wnych oraz listÄ™ rzeczy ktÃ³re zrobiono dodatkowo.
 
 POWODZENIA :)

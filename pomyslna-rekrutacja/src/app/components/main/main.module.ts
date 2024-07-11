@@ -4,12 +4,14 @@ import { MainContainerComponent } from './container/main-container/main-containe
 import { MainDescriptionComponent } from './presenter/main-description/main-description.component';
 import { MainOptionsComponent } from './presenter/main-options/main-options.component';
 import { MainToolsComponent } from './presenter/main-tools/main-tools.component';
+import { MainContentService } from './services/main-content.service';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [MainContainerComponent, MainDescriptionComponent, MainOptionsComponent, MainToolsComponent],
-  exports: [MainContainerComponent]
+  exports: [MainContainerComponent],
+  providers: [MainContentService]
 })
 export class MainModule { }
