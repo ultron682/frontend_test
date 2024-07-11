@@ -1,1 +1,8 @@
 @import 'normalize.css';
+@import './utilities/constants';
+
+body {
+  font-family: 'OpenSans', sans-serif;
+  background-color: $background-color;
+  color: $font-color;
+}

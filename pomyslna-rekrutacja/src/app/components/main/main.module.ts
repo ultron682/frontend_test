@@ -5,10 +5,13 @@ import { MainDescriptionComponent } from './presenter/main-description/main-desc
 import { MainOptionsComponent } from './presenter/main-options/main-options.component';
 import { MainToolsComponent } from './presenter/main-tools/main-tools.component';
 import { MainContentService } from './services/main-content.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [MainContainerComponent, MainDescriptionComponent, MainOptionsComponent, MainToolsComponent],
   exports: [MainContainerComponent],

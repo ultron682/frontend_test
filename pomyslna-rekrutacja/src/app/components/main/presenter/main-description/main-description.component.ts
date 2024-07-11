@@ -9,7 +9,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class MainDescriptionComponent implements OnInit {
   contents: Row[] = [];
-  headerText = "Blok z długą nazwą która sama się przytnie...";
+  headerText = "Blok z długą nazwą która sama się przytnie i tego nie powinno być już widać";
 
   constructor(private mainContentService: MainContentService) {
     this.mainContentService.getContentsNoEmpty().subscribe((data) => {
@@ -18,7 +18,7 @@ export class MainDescriptionComponent implements OnInit {
 
     this.mainContentService.downloadedContentsChange.subscribe((data) => {
       this.contents = data;
-      console.log("podmianka");
+      console.log("podmianka" + this.contents);
     });
   }
 

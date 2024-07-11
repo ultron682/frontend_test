@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainContentService } from '../../services/main-content.service';
 
 @Component({
   selector: 'app-main-tools',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class MainToolsComponent implements OnInit {
   content: string = '';
 
-  constructor() { }
+  constructor(private contentService: MainContentService) { }
 
   ngOnInit() {
   }
@@ -18,6 +19,6 @@ export class MainToolsComponent implements OnInit {
   }
 
   appendContent() {
-
+    this.contentService.appendContent('asdasd');
   }
 }
