@@ -1,4 +1,4 @@
 <div id="block-third">
-  <h2>Blok z długą nazwą która sama się przytnie...</h2>
+  <h2>{{headerText | slice:0:42}} ...</h2>
   <div *ngFor="let item of contents">{{item.content}}</div>
 </div>

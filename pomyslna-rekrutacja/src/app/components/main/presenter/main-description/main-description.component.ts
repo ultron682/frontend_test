@@ -9,6 +9,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class MainDescriptionComponent implements OnInit {
   contents: Row[] = [];
+  headerText = "Blok z długą nazwą która sama się przytnie...";
 
   constructor(private mainContentService: MainContentService) {
     this.mainContentService.getContentsNoEmpty().subscribe((data) => {
