@@ -18,6 +18,9 @@ export class MainContentService {
   );
   workspaceContentsChange = this.workspaceContent.asObservable();
   selectedOption: Option = Option.None;
+  // zdarzenie o resecie z wykorzystaniem toSignal()
+  @Output() resetSignal = new EventEmitter<void>();
+
 
   constructor(private http: HttpClient) {
     this.loadContent();

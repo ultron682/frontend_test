@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: $background-footer-color;
-  padding: 20px;
+  padding: 0 20px;
   position: relative;
   height: $footer-height;
 
@@ -15,9 +15,7 @@
     .footer-text {
       width: 80px;
       height: 80px;
-
       position: relative;
-
       border: 1px solid #ffa500;
       padding: 10px;
       cursor: pointer;
