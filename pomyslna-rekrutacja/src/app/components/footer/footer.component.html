@@ -1,8 +1,17 @@
-<footer>
-  <div class="footer-button">Pokaż</div>
-  <div class="footer-content">
-    <button (click)="resetContent()">Zresetuj ustawienia</button>
-    <button (click)="showName()">Pokaż dane osobowe</button>
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-text">
+      <span>CSS</span>
+      <span>IS</span>
+      <span>AWESOME</span>
+    </div>
   </div>
-  <div class="css-awesome" id="css-awesome">CSS IS AWESOME</div>
+  <div class="footer-right">
+    <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
+    <label for="dropdown-toggle" class="dropdown-label">POKAŻ <span>&#9662;</span></label>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">ZRESETUJ USTAWIENIA</a>
+      <a href="#" class="dropdown-item">POKAŻ DANE OSOBOWE</a>
+    </div>
+  </div>
 </footer>

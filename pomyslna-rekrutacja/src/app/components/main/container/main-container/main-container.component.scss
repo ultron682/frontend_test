@@ -2,6 +2,7 @@
 
 main {
   padding-top: $footer-height;
+  min-height: calc(100vh - $header-height - $footer-height);
 
   div {
     display: flex;

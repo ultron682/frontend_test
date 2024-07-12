@@ -37,9 +37,11 @@ export class MainContentService {
       this.downloadContent();
     } else {
       console.log(JSON.parse(localStorage.getItem("downloadedContent")!));
+
       this.downloadedContent = JSON.parse(
         localStorage.getItem("downloadedContent")!
       );
+
       this.workspaceContent.next(
         JSON.parse(localStorage.getItem("workspaceContent")!)
       );
@@ -132,10 +134,6 @@ export class MainContentService {
     }
 
     this.workspaceContent.next([newContent]);
-    localStorage.setItem(
-      "workspaceContent",
-      JSON.stringify(this.downloadedContent)
-    );
   }
 
   setSelectedOption(option: Option): void {
