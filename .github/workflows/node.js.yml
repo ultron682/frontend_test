@@ -30,9 +30,8 @@ jobs:
         run: npm run build --prod
         working-directory: ./pomyslna-rekrutacja
 
-      - name: Deploy to gh pages
-        run: |
-          npx angular-cli-ghpages --dir=dist/pomyslna-rekrutacja
-        env:
-          CI: true
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend_test/dist/pomyslna-rekrutacja
