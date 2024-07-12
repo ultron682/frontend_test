@@ -22,9 +22,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Navigate to frontend directory
-        run: cd pomyslna-rekrutacja
-
       - name: Install dependencies
         run: npm ci
         working-directory: ./pomyslna-rekrutacja
@@ -37,4 +34,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/dist/pomyslna-rekrutacja
+          publish_dir: ./pomyslna-rekrutacja/dist/pomyslna-rekrutacja
