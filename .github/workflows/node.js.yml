@@ -1,0 +1,40 @@
+name: Deploy Angular app to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Navigate to frontend directory
+        run: cd pomyslna-rekrutacja
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./pomyslna-rekrutacja
+
+      - name: Build Angular app
+        run: npm run build --prod
+        working-directory: ./pomyslna-rekrutacja
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/dist/pomyslna-rekrutacja
