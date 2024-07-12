@@ -1,7 +1,7 @@
 @import "../../../../../utilities/constants";
 
 main {
-  padding-top: $footer-height;
+  padding: $footer-height 40px 0 40px;
   min-height: calc(100vh - $header-height - $footer-height);
   display: flex;
   flex-direction: column;

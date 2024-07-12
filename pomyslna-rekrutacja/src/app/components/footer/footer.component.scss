@@ -8,10 +8,9 @@
   padding: 0 20px;
   position: relative;
   height: $footer-height;
+  // overflow: hidden;
 
-  .footer-left {
-
-
+  &-left {
     .footer-text {
       width: 80px;
       height: 80px;
@@ -20,7 +19,7 @@
       padding: 10px;
       cursor: pointer;
 
-      .text-container{
+      .text-container {
         display: flex;
         height: 100%;
         position: absolute;
@@ -28,30 +27,34 @@
         align-items: flex-start;
         justify-content: center;
       }
+
+      &:hover {
+        border: 1px solid #ffa500;
+      }
     }
   }
 
-.footer-center{
-  h1 {
-    font-size: 2rem;
-}
-  h1::before,
-  h1::after {
+  .footer-center {
+    h1 {
+      font-size: 2rem;
+      color: $secondary-color;
+    }
+    h1::before,
+    h1::after {
       display: inline-block;
       content: "";
-      border-top: .3rem solid black;
+      border-top: 0.3rem solid black;
       width: 4rem;
       margin: 0 1rem;
-      transform: translateY(-0.5rem)
+      transform: translateY(-0.5rem);
+    }
   }
-}
 
   .footer-right {
     position: relative;
 
     .dropdown-toggle {
       display: none;
-
 
       &:checked ~ .dropdown-menu {
         display: block;
@@ -62,7 +65,7 @@
       display: block;
       width: 200px;
       background-color: transparent;
-      border: 1px solid #fff;
+      border: 1px solid $secondary-color;
       color: #fff;
       padding: 10px 20px;
       cursor: pointer;

@@ -21,8 +21,6 @@ export class MainContentService {
 
   // todo siganl reset
 
-
-
   constructor(private http: HttpClient) {
     this.loadContent();
 
@@ -126,7 +124,9 @@ export class MainContentService {
   }
 
   replaceContent(): void {
-    this.workspaceContent.next([]);
+    if (this.workspaceContent.getValue().length > 0) // improve get next random element (no duplicate next element if before is only one)
+      this.workspaceContent.next([this.workspaceContent.getValue()[0]]);
+    else this.workspaceContent.next([]);
 
     if (this.selectedOption == Option.None) {
       alert("Nie wybrano opcji");
