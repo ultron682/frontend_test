@@ -23,13 +23,24 @@ header {
     margin-right: auto;
     padding: 10px;
     margin: 0;
-    background-color: #e78301;
+    cursor: pointer;
     background-color: #303030;
     border-radius: 50%;
+    transition: all 0.1s;
 
     img {
       height: 4em;
       filter: brightness(0) invert(1);
+      transform: scale(1);
+      transition: all 0.1s;
+    }
+
+    &:hover {
+      background-color: #e78301;
+
+      img:hover {
+        transform: scale(1.1);
+      }
     }
   }
 

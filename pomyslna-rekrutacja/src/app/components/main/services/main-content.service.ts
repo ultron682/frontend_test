@@ -18,8 +18,9 @@ export class MainContentService {
   );
   workspaceContentsChange = this.workspaceContent.asObservable();
   selectedOption: Option = Option.None;
-  // zdarzenie o resecie z wykorzystaniem toSignal()
-  @Output() resetSignal = new EventEmitter<void>();
+
+  // todo siganl reset
+
 
 
   constructor(private http: HttpClient) {
@@ -125,6 +126,8 @@ export class MainContentService {
   }
 
   replaceContent(): void {
+    this.workspaceContent.next([]);
+
     if (this.selectedOption == Option.None) {
       alert("Nie wybrano opcji");
       return;

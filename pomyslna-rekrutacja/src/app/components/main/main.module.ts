@@ -6,6 +6,7 @@ import { MainOptionsComponent } from './presenter/main-options/main-options.comp
 import { MainToolsComponent } from './presenter/main-tools/main-tools.component';
 import { MainContentService } from './services/main-content.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RowSortPipe } from '../../shared/pipes/articlesSortPipe.pipe';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [MainContainerComponent, MainDescriptionComponent, MainOptionsComponent, MainToolsComponent],
+  declarations: [MainContainerComponent, MainDescriptionComponent, MainOptionsComponent, MainToolsComponent, RowSortPipe],
   exports: [MainContainerComponent],
   providers: [MainContentService]
 })
