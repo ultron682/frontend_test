@@ -2,21 +2,43 @@
 
 header {
   display: flex;
-  justify-content: center;
+  padding: 10px;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: $secondary-color;
+  background-color: $background-header-color;
   height: $header-height;
+
+  .header-right {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 30px;
+  }
+
   .logo {
     margin-right: auto;
     padding: 10px;
+    margin: 0;
+    background-color: #e78301;
+    background-color: #303030;
+    border-radius: 50%;
+
     img {
-      height: 30px;
+      height: 4em;
+      filter: brightness(0) invert(1);
     }
   }
-  h1 {
-    font-size: 1.5rem;
+
+  h2 {
+    display: inline;
+    margin: 0;
+  }
+  h3 {
+    display: inline;
+    margin: 0;
   }
 }

@@ -139,4 +139,15 @@ export class MainContentService {
   setSelectedOption(option: Option): void {
     this.selectedOption = option;
   }
+
+  resetToStartSettings(): void {
+    localStorage.clear();
+
+    this.workspaceContent.next([]);
+    this.downloadedContent = [];
+
+    this.selectedOption = Option.None;
+
+    this.loadContent();
+  }
 }

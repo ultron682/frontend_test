@@ -1,0 +1,15 @@
+@import '../../../../../utilities/constants';
+
+.block-third {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .article-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: $font-color-second;
+  }
+}
