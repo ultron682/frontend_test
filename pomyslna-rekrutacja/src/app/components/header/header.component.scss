@@ -1,6 +1,6 @@
 @import "../../../utilities/constants";
 
-header {
+.header {
   display: flex;
   width: calc(100% - ($padding-horizontal * 2));
   height: $header-height;
@@ -12,7 +12,7 @@ header {
   background-color: $background-header-color;
   z-index: 100;
 
-  .header-right {
+  &__right {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
@@ -20,7 +20,7 @@ header {
     margin-right: 30px;
   }
 
-  .logo {
+  &__logo {
     margin-right: auto;
     padding: 10px;
     margin: 0;
@@ -29,23 +29,28 @@ header {
     border-radius: 50%;
     transition: all 0.1s;
 
-    img {
+    &-image {
       height: 4em;
       filter: brightness(0) invert(1);
       transform: scale(1);
       transition: all 0.1s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     &:hover {
       background-color: #e78301;
-
-      img:hover {
-        transform: scale(1.1);
-      }
     }
   }
 
-  h1 {
+  &__title {
+    display: inline;
+    margin: 0;
+  }
+
+  &__name {
     display: inline;
     margin: 0;
   }

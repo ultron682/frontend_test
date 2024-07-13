@@ -1,12 +1,13 @@
-<header>
-  <a href="https://ultron682.github.io/frontend_test/" class="logo">
+<header class="header">
+  <a href="https://ultron682.github.io/frontend_test/" class="header__logo">
     <img
       src="https://cdn.iconscout.com/icon/free/png-512/free-html5-41-1175209.png?f=webp&w=256"
       alt="HTML5 Logo"
+      class="header__logo-image"
     />
   </a>
-  <div class="header-right">
-    <h1>Zadanie <b>rekrutacyjne</b></h1>
-    <h1 *ngIf="isShowed">Michał Mazur</h1>
+  <div class="header__right">
+    <h1 class="header__title">Zadanie <b>rekrutacyjne</b></h1>
+    <h1 *ngIf="isShowed" class="header__name">Michał Mazur</h1>
   </div>
 </header>
