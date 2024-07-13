@@ -21,7 +21,7 @@
               "base": "dist/",
               "browser": ""
             },
-            "baseHref": "/frontend_test/browser/",
+            "baseHref": "/frontend_test/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
