@@ -10,6 +10,7 @@ header {
   width: 100%;
   background-color: $background-header-color;
   height: $header-height;
+  z-index: 100;
 
   .header-right {
     display: flex;

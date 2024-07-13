@@ -17,7 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/pomyslna-rekrutacja",
+            "outputPath": {
+              "base": "dist/",
+              "browser": ""
+            },
             "baseHref": "/frontend_test/browser/",
             "index": "src/index.html",
             "browser": "src/main.ts",

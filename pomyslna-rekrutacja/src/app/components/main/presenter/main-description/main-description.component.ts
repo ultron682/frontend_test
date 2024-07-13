@@ -7,16 +7,14 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./main-description.component.html",
   styleUrls: ["./main-description.component.scss"],
 })
-export class MainDescriptionComponent implements OnInit {
+export class MainDescriptionComponent {
   contents: Row[] = [];
-  headerText = "Blok z długą nazwą, która sama się przytnie i tego nie powinno być już widać";
+  headerText =
+    "Blok z długą nazwą, która sama się przytnie i na końcu doda kropki.";
 
   constructor(private mainContentService: MainContentService) {
     this.mainContentService.workspaceContentsChange.subscribe((data) => {
       this.contents = data;
-      console.log("podmianka" + this.contents);
     });
   }
-
-  ngOnInit() {}
 }

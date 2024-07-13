@@ -14,9 +14,17 @@
 
     .article-ele {
       text-align: center;
-      animation-duration: .3s;
+      animation-duration: 0.3s;
       animation-name: slidein;
     }
+  }
+
+  h2 {
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   @keyframes slidein {
