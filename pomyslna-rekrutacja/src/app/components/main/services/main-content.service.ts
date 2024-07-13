@@ -19,7 +19,7 @@ export class MainContentService {
   workspaceContentsChange = this.workspaceContent.asObservable();
   selectedOption: Option = Option.None;
 
-  // todo siganl reset
+  @Output() onResetState = new EventEmitter();
 
   constructor(private http: HttpClient) {
     this.loadContent();
@@ -33,7 +33,7 @@ export class MainContentService {
     });
   }
 
-  // w zadaniu trzeba było zaimplementować zapis przez localStorage, ale normalnie użyłbym ngrx
+  // w zadaniu trzeba było zaimplementować zapis przez localStorage, ale możnaby pokusić się o ngrx
   private loadContent(): void {
     if (localStorage.getItem("downloadedContent") == null) {
       this.downloadContent();
@@ -78,9 +78,6 @@ export class MainContentService {
           "downloadedContent",
           JSON.stringify(this.downloadedContent)
         );
-
-        console.log("Zawartość pobrana i zapisana", this.downloadedContent);
-        // this.workspaceContentsChange.emit(this.workspaceContent);
       });
   }
 
@@ -113,7 +110,9 @@ export class MainContentService {
     var newContent = this.getNextRow();
 
     if (newContent == undefined) {
-      alert("Brak możliwości dodania nowej zawartości");
+      alert(
+        "Brak możliwości dodania nowej zawartości ze względu na wszystkie użyte już elementy"
+      );
       return;
     }
 
@@ -124,18 +123,21 @@ export class MainContentService {
   }
 
   replaceContent(): void {
-    if (this.workspaceContent.getValue().length > 0) // improve get next random element (no duplicate next element if before is only one)
-      this.workspaceContent.next([this.workspaceContent.getValue()[0]]);
-    else this.workspaceContent.next([]);
-
     if (this.selectedOption == Option.None) {
       alert("Nie wybrano opcji");
       return;
     }
 
+    if (this.workspaceContent.getValue().length > 0)
+      // improve get next random element (no duplicate next element if before is only one)
+      this.workspaceContent.next([this.workspaceContent.getValue()[0]]);
+    else this.workspaceContent.next([]);
+
     var newContent = this.getNextRow();
     if (newContent === undefined) {
-      alert("Brak możliwości dodania nowej zawartości");
+      alert(
+        "Brak możliwości dodania nowej zawartości ze względu na wszystkie użyte już elementy"
+      );
       return;
     }
 
@@ -155,5 +157,7 @@ export class MainContentService {
     this.selectedOption = Option.None;
 
     this.loadContent();
+
+    this.onResetState.emit();
   }
 }

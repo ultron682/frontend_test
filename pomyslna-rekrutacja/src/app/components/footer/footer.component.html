@@ -12,13 +12,33 @@
     <h1>nabthat</h1>
   </div>
   <div class="footer-right">
-    <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle" />
+    <input
+      type="checkbox"
+      id="dropdown-toggle"
+      class="dropdown-toggle"
+      [(ngModel)]="isChecked"
+    />
     <label for="dropdown-toggle" class="dropdown-label"
-      >POKAŻ <span>&#9662;</span></label
-    >
+      >POKAŻ<i class="arrow down"></i>
+    </label>
     <div class="dropdown-menu">
-      <button (click)="resetContent()" class="dropdown-item">ZRESETUJ USTAWIENIA</button>
-      <button (click)="showName()" class="dropdown-item">POKAŻ DANE OSOBOWE</button>
+      <button (click)="resetContent()" class="dropdown-item">
+        <i class="arrow right"></i>ZRESETUJ USTAWIENIA
+      </button>
+      <button (click)="switchPersonalDataVisibility()" class="dropdown-item">
+        <i class="arrow right"></i
+        >
+        <ng-container *ngIf="showPersonalDataContent == false; else elseshowPersonalDataContent">
+          <span >
+            POKAŻ DANE OSOBOWE</span
+          >
+        </ng-container>
+        <ng-template #elseshowPersonalDataContent>
+          <span >
+            UKRYJ DANE OSOBOWE</span
+          >
+        </ng-template>
+      </button>
     </div>
   </div>
 </footer>

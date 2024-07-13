@@ -18,6 +18,7 @@
       border: 1px solid $secondary-color;
       padding: 10px;
       cursor: pointer;
+      transition: all 0.2s linear;
 
       .text-container {
         display: flex;
@@ -28,6 +29,7 @@
         align-items: flex-start;
         justify-content: center;
         color: $secondary-color;
+        transition: all 0.2s linear;
 
         p {
           margin: 0;
@@ -75,31 +77,42 @@
       display: none;
 
       &:checked ~ .dropdown-menu {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
       }
     }
 
     .dropdown-label {
       display: block;
-      width: 200px;
+      width: 15em;
       background-color: transparent;
       border: 1px solid $secondary-color;
-      color: #fff;
+      color: $font-color-second;
       padding: 10px 20px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 1em;
       text-align: center;
+      transition: all 0.1s;
 
       span {
         margin-left: 5px;
       }
+
+      &:hover {
+        border: 1px solid white;
+        color: white;
+      }
     }
 
     .dropdown-menu {
+      height: 6em;
       display: none;
       position: absolute;
       bottom: calc((100% / 2) + ($footer-height / 2));
       right: 0;
+      left: 0;
       background-color: #ffffff;
       box-shadow: 0px 0px 34px 7px rgb(0, 0, 0);
       border: 1px solid #444;
@@ -116,15 +129,46 @@
         border: none;
         font: inherit;
         cursor: pointer;
+
+        i {
+          margin-right: 0.5em;
+        }
+
         &:hover {
-          color: #ffa500;
+          color: $primary-color;
+
+          i {
+            border-color: $primary-color !important;
+          }
         }
       }
     }
+  }
 
-    // todo
-      //     &:hover {
-      //   border: 1px solid #ffa500;
-      // }
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
   }
 }

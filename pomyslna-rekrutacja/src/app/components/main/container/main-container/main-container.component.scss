@@ -37,13 +37,13 @@ main {
     align-items: flex-start;
 
     > * {
-      width: 33%;
+      width: 33.33%;
     }
 
     @media (max-width: 960px) {
       flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
 
       > app-main-options,
       > app-main-tools {

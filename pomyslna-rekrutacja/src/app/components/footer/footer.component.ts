@@ -1,24 +1,27 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { MainContentService } from "../main/services/main-content.service";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @Component({
   standalone: true,
+  imports: [FormsModule, CommonModule],
   selector: "app-footer",
   templateUrl: "./footer.component.html",
   styleUrls: ["./footer.component.scss"],
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
   @Output() showPersonalDataEmitter = new EventEmitter();
+  @Input() showPersonalDataContent: boolean = false;
+  isChecked = false;
 
   constructor(private mainContentService: MainContentService) {}
-
-  ngOnInit() {}
 
   resetContent() {
     this.mainContentService.resetToStartSettings();
   }
 
-  showName() {
+  switchPersonalDataVisibility() {
     this.showPersonalDataEmitter.emit();
   }
 }

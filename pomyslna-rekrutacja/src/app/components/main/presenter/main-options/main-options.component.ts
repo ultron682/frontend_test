@@ -13,7 +13,11 @@ export class MainOptionsComponent implements OnInit {
     option: new FormControl(""),
   });
 
-  constructor(private mainContentService: MainContentService) {}
+  constructor(private mainContentService: MainContentService) {
+    mainContentService.onResetState.subscribe(() => {
+      this.optionsForm.reset();
+    });
+  }
 
   ngOnInit() {
     this.optionsForm.valueChanges.subscribe((value) => {
