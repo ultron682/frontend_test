@@ -2,13 +2,12 @@
 @import "./utilities/constants";
 
 html {
-  height: 100%;
+  height: 100dvh;
+  background-color: $background-color;
 
   body {
     font-family: "OpenSans", sans-serif;
-    background-color: $background-color;
     color: $font-color;
-    height: 100%;
-
+    height: 100dvh;
   }
 }

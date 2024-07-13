@@ -45,6 +45,7 @@ main {
       justify-content: center;
       align-items: flex-start;
 
+
       > app-main-options,
       > app-main-tools {
         order: 1;
@@ -54,6 +55,7 @@ main {
       > app-main-description {
         order: 2;
         width: 100%;
+        margin-top: 1rem;
       }
     }
   }
