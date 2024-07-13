@@ -11,10 +11,9 @@
 
   &-left {
     cursor: pointer;
-    //overflow: hidden;
-position: relative;
-width: 6.5em;
-height: 6.5em;
+    position: relative;
+    width: 6.5em;
+    height: 6.5em;
 
     &:hover {
       .border-container {
@@ -34,17 +33,13 @@ height: 6.5em;
       top: 0%;
       left: 0%;
       border: 1px solid $secondary-color;
-      // padding: 10px;
-      // cursor: pointer;
       transition: all 0.2s linear;
       z-index: 100;
     }
 
     .text-container {
       display: flex;
-      // height: 100%;
       position: absolute;
-      // padding: 10px;
       top: 10%;
       left: 10%;
       flex-direction: column;
