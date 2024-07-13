@@ -28,8 +28,6 @@ export class MainContentService {
       if (data.length == 0) return;
 
       localStorage.setItem("workspaceContent", JSON.stringify(data));
-
-      console.log("Zawartość zapisana", data);
     });
   }
 
@@ -38,8 +36,6 @@ export class MainContentService {
     if (localStorage.getItem("downloadedContent") == null) {
       this.downloadContent();
     } else {
-      console.log(JSON.parse(localStorage.getItem("downloadedContent")!));
-
       this.downloadedContent = JSON.parse(
         localStorage.getItem("downloadedContent")!
       );
@@ -83,8 +79,23 @@ export class MainContentService {
 
   getNextRow(): Row | undefined {
     if (this.selectedOption == Option.First) {
+      if (
+        this.workspaceContent
+          .getValue()
+          .some((obj2) => this.downloadedContent[0].id === obj2.id)
+      ) {
+        return undefined;
+      }
       return this.downloadedContent[0];
     } else if (this.selectedOption == Option.Second) {
+      if (
+        this.workspaceContent
+          .getValue()
+          .some((obj2) => this.downloadedContent[1].id === obj2.id)
+      ) {
+        return undefined;
+      }
+
       return this.downloadedContent[1];
     } else if (this.selectedOption == Option.Random) {
       var randomOptions = this.downloadedContent.filter(
@@ -135,9 +146,10 @@ export class MainContentService {
 
     var newContent = this.getNextRow();
     if (newContent === undefined) {
-      alert(
-        "Brak możliwości dodania nowej zawartości ze względu na wszystkie użyte już elementy"
-      );
+      if (this.selectedOption == Option.Random)
+        alert(
+          "Brak możliwości dodania nowej zawartości ze względu na wszystkie użyte już elementy"
+        );
       return;
     }
 

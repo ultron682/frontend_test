@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { MainContentService } from "../main/services/main-content.service";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";

@@ -8,42 +8,51 @@
   padding: 0 20px;
   position: relative;
   height: $footer-height;
-  // overflow: hidden;
+
 
   &-left {
-    .footer-text {
-      width: 80px;
-      height: 80px;
-      position: relative;
-      border: 1px solid $secondary-color;
-      padding: 10px;
-      cursor: pointer;
-      transition: all 0.2s linear;
-
-      .text-container {
-        display: flex;
-        height: 100%;
-        position: absolute;
-        bottom: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        color: $secondary-color;
-        transition: all 0.2s linear;
-
-        p {
-          margin: 0;
-          font-size: 1.4em;
-          z-index: 10;
-        }
-
-        &:hover {
-          color: $font-color-second !important;
-        }
+    cursor: pointer;
+    overflow: hidden;
+    &:hover {
+      .border-container {
+        border: 1px solid #ffa500;
+        transform: rotate(360deg);
       }
 
-      &:hover {
-        border: 1px solid #ffa500;
+      .text-container {
+        color: $font-color-second !important;
+      }
+    }
+
+    .border-container {
+      width: 7em;
+      height: 7em;
+      position: absolute;
+      bottom: 0;
+      border: 1px solid $secondary-color;
+      // padding: 10px;
+      // cursor: pointer;
+      transition: all 0.2s linear;
+      z-index: 100;
+    }
+
+    .text-container {
+      display: flex;
+      // height: 100%;
+      position: absolute;
+      // padding: 10px;
+      bottom: 10px;
+      left: 30px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      color: $secondary-color;
+      transition: all 0.2s linear;
+
+      p {
+        margin: 0;
+        font-size: 1.4em;
+        z-index: 10;
       }
     }
   }
@@ -95,6 +104,7 @@
       font-size: 1em;
       text-align: center;
       transition: all 0.1s;
+
 
       span {
         margin-left: 5px;

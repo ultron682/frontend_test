@@ -1,11 +1,10 @@
 <footer class="footer">
   <div class="footer-left">
-    <div class="footer-text">
-      <div class="text-container">
-        <p>CSS</p>
-        <p>IS</p>
-        <p>AWESOME</p>
-      </div>
+    <div class="border-container"></div>
+    <div class="text-container">
+      <p>CSS</p>
+      <p>IS</p>
+      <p>AWESOME</p>
     </div>
   </div>
   <div class="footer-center">
@@ -18,25 +17,25 @@
       class="dropdown-toggle"
       [(ngModel)]="isChecked"
     />
-    <label for="dropdown-toggle" class="dropdown-label"
-      >POKAŻ<i class="arrow down"></i>
+    <label for="dropdown-toggle" class="dropdown-label">
+      <ng-container *ngIf="isChecked; else elseText"> UKRYJ </ng-container>
+      <ng-template #elseText> POKAŻ </ng-template>
+
+      <i class="arrow down"></i>
     </label>
     <div class="dropdown-menu">
       <button (click)="resetContent()" class="dropdown-item">
         <i class="arrow right"></i>ZRESETUJ USTAWIENIA
       </button>
       <button (click)="switchPersonalDataVisibility()" class="dropdown-item">
-        <i class="arrow right"></i
+        <i class="arrow right"></i>
+        <ng-container
+          *ngIf="!showPersonalDataContent; else elseshowPersonalDataContent"
         >
-        <ng-container *ngIf="showPersonalDataContent == false; else elseshowPersonalDataContent">
-          <span >
-            POKAŻ DANE OSOBOWE</span
-          >
+          <span> POKAŻ DANE OSOBOWE</span>
         </ng-container>
         <ng-template #elseshowPersonalDataContent>
-          <span >
-            UKRYJ DANE OSOBOWE</span
-          >
+          <span> UKRYJ DANE OSOBOWE</span>
         </ng-template>
       </button>
     </div>
