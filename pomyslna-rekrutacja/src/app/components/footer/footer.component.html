@@ -18,10 +18,10 @@
       [(ngModel)]="isChecked"
     />
     <label for="dropdown-toggle" class="dropdown-label">
-      <ng-container *ngIf="isChecked; else elseText"> UKRYJ </ng-container>
-      <ng-template #elseText> POKAŻ </ng-template>
-
-      <i class="arrow down"></i>
+      <ng-container *ngIf="isChecked; else elseText">
+        UKRYJ <i class="arrow up"></i
+      ></ng-container>
+      <ng-template #elseText> POKAŻ <i class="arrow down"></i></ng-template>
     </label>
     <div class="dropdown-menu">
       <button (click)="resetContent()" class="dropdown-item">

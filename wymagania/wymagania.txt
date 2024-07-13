@@ -54,6 +54,8 @@ Projekt nie musi być 'pixel perfect'. Z uwagi na brak pliku źródłowego a jed
 
 
 ## WYSYŁKA PRACY
-Należy przesłać link do swojego repozytorium z rozwiązaniem. Dodatkowo wrzuć dokument tekstowy z listą rzeczy których nie udało się wykonać z celów głównych oraz listę rzeczy które zrobiono dodatkowo.
+Należy przesłać link do swojego repozytorium z rozwiązaniem. 
+Dodatkowo wrzuć dokument tekstowy z listą rzeczy których nie udało się wykonać z celów głównych oraz listę rzeczy
+które zrobiono dodatkowo.
 
 POWODZENIA :)
