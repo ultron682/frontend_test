@@ -2,14 +2,14 @@
 
 header {
   display: flex;
-  padding: 0 10px;
+  width: calc(100% - ($padding-horizontal * 2));
+  height: $header-height;
+  padding: 0 $padding-horizontal;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
-  width: 100%;
   background-color: $background-header-color;
-  height: $header-height;
   z-index: 100;
 
   .header-right {
@@ -48,5 +48,10 @@ header {
   h1 {
     display: inline;
     margin: 0;
+  }
+
+  @media (max-width: 960px) {
+    width: calc(100% - ($padding-horizontal));
+    padding: 0 calc($padding-horizontal / 2);
   }
 }

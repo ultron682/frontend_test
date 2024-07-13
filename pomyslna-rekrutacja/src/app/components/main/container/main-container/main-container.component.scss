@@ -1,7 +1,7 @@
 @import "../../../../../utilities/constants";
 
 main {
-  padding: $footer-height 40px 0 40px;
+  padding: $footer-height $padding-horizontal 0 $padding-horizontal;
   min-height: calc(100vh - $header-height - $footer-height);
   display: flex;
   flex-direction: column;
@@ -56,5 +56,10 @@ main {
         width: 100%;
       }
     }
+  }
+
+  @media (max-width: 960px) {
+    padding: $footer-height calc($padding-horizontal / 2) 0 calc($padding-horizontal / 2);
+    min-height: calc(100vh - $header-height - $footer-height);
   }
 }

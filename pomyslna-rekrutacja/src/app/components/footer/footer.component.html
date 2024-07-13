@@ -19,16 +19,23 @@
     />
     <label for="dropdown-toggle" class="dropdown-label">
       <ng-container *ngIf="isChecked; else elseText">
-        UKRYJ <i class="arrow up"></i
-      ></ng-container>
-      <ng-template #elseText> POKAŻ <i class="arrow down"></i></ng-template>
+        UKRYJ <span class="material-symbols-outlined">
+          keyboard_arrow_up
+          </span></ng-container>
+      <ng-template #elseText> POKAŻ <span class="material-symbols-outlined">
+        keyboard_arrow_down
+        </span></ng-template>
     </label>
     <div class="dropdown-menu">
       <button (click)="resetContent()" class="dropdown-item">
-        <i class="arrow right"></i>ZRESETUJ USTAWIENIA
+        <span class="material-symbols-outlined">
+          keyboard_arrow_right
+          </span>ZRESETUJ USTAWIENIA
       </button>
       <button (click)="switchPersonalDataVisibility()" class="dropdown-item">
-        <i class="arrow right"></i>
+        <span class="material-symbols-outlined">
+          keyboard_arrow_right
+          </span>
         <ng-container
           *ngIf="!showPersonalDataContent; else elseshowPersonalDataContent"
         >
