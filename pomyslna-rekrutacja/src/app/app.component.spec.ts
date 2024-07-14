@@ -1,12 +1,12 @@
 import { TestBed } from "@angular/core/testing";
-import { HttpClientModule } from "@angular/common/http";
+import { provideHttpClient } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { MainModule } from "./components/main/main.module";
 import { MainContentService } from "./components/main/services/main-content.service";
-import { EventEmitter } from "@angular/core";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 
 describe("AppComponent", () => {
   beforeEach(async () => {
@@ -16,10 +16,10 @@ describe("AppComponent", () => {
         AppComponent,
         HeaderComponent,
         FooterComponent,
-        MainModule,
-        HttpClientModule,
+        MainModule
       ],
-      providers: [MainContentService],
+      providers: [MainContentService,provideHttpClient(),
+        provideHttpClientTesting(),],
       schemas: [NO_ERRORS_SCHEMA], // Ignore unknown elements and attributes
     }).compileComponents();
   });
