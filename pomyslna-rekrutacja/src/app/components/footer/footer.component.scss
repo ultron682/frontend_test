@@ -76,15 +76,13 @@
     .footer__title::after {
       display: inline-block;
       content: "";
-      border-top: 0.3rem solid black;
+      border-top: 0.2rem solid $secondary-color;
       width: 4rem;
       margin: 0 1rem;
       transform: translateY(-0.3rem);
     }
-  }
 
-  @media (max-width: 960px) {
-    &__center {
+    @media (max-width: 960px) {
       display: none;
     }
   }

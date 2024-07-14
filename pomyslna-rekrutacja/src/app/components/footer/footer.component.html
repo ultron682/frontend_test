@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="footer__center">
-    <h1 class="footer__title">nabthat</h1>
+    <h1 class="footer__title" aria-label="Najlepsza firma">nabthat</h1>
   </div>
   <div class="footer__right">
     <input
@@ -30,11 +30,11 @@
       </ng-template>
     </label>
     <div class="footer__dropdown-menu">
-      <button (click)="resetContent()" class="footer__dropdown-item">
+      <button (click)="resetContent()" aria-label="Zresetuj ustawienia" class="footer__dropdown-item">
         <span class="material-symbols-outlined">keyboard_arrow_right</span>
         <b>ZRESETUJ USTAWIENIA</b>
       </button>
-      <button (click)="switchPersonalDataVisibility()" class="footer__dropdown-item">
+      <button (click)="switchPersonalDataVisibility()" aria-label="Pokaż dane osobowe" class="footer__dropdown-item">
         <span class="material-symbols-outlined">keyboard_arrow_right</span>
         <ng-container *ngIf="!showPersonalDataContent; else elseshowPersonalDataContent">
           <span><b>POKAŻ DANE OSOBOWE</b></span>
