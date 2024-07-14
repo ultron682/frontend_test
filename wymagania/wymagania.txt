@@ -52,12 +52,11 @@ Zbudować plik z tablicą przynajmniej 6 elementów zawierających dowolną tre�
 
 ## UWAGI
 Projekt nie musi być 'pixel perfect'. Z uwagi na brak pliku źródłowego a jedynie jpg należy wymiary samemu zmierzyć.
- Ale przykładowo jeżeli jakiś element po zmierzeniu wydaje się że ma 139px to dobrą praktyką będzie zaokrąglić go do 140px. Użyty w projekcie font to OpenSans.
+Ale przykładowo jeżeli jakiś element po zmierzeniu wydaje się że ma 139px to dobrą praktyką będzie zaokrąglić go do 140px. Użyty w projekcie font to OpenSans.
 
 
 ## WYSYŁKA PRACY
 Należy przesłać link do swojego repozytorium z rozwiązaniem. 
-Dodatkowo wrzuć dokument tekstowy z listą rzeczy których nie udało się wykonać z celów głównych oraz listę rzeczy
-które zrobiono dodatkowo.
+Dodatkowo wrzuć dokument tekstowy z listą rzeczy których nie udało się wykonać z celów głównych oraz listę rzeczy które zrobiono dodatkowo.
 
 POWODZENIA :)

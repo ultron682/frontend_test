@@ -13,20 +13,12 @@
   z-index: 100;
   transition: all 0.1s;
 
-  &__right {
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
   &__logo {
     padding: 10px;
     margin: 0;
     cursor: pointer;
     background-color: #303030;
     border-radius: 50%;
-
 
     &-image {
       height: 4em;
@@ -44,19 +36,41 @@
     }
   }
 
+  &__right {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: all 0.2s;
+  }
+
   &__title {
     display: inline;
     margin: 0;
+    transition: all 0.2s;
   }
 
   &__name {
     display: inline;
     margin: 0;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
   }
 
   @media (max-width: 960px) {
     width: calc(100% - ($padding-horizontal));
     padding: 0 calc($padding-horizontal / 2);
     font-size: 0.7em;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

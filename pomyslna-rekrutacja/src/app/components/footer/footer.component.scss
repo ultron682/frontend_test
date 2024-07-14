@@ -44,7 +44,7 @@
         left: 0%;
         border: 1px solid $secondary-color;
         transition: all 0.5s linear;
-        z-index: 100;
+        z-index: 110;
       }
 
       .footer__text-container {
@@ -89,6 +89,7 @@
 
   &__right {
     position: relative;
+    z-index: 120;
 
     .footer__dropdown-toggle {
       display: none;
@@ -115,6 +116,7 @@
       text-align: center;
       align-items: center;
       transition: all 0.1s;
+      z-index: 110;
 
       @media (max-width: 960px) {
         width: 5em;
@@ -192,7 +194,7 @@
 
 @keyframes slide-up {
   from {
-    bottom: calc($footer-height / 2);
+    bottom: 0;
     opacity: 0;
   }
   to {
