@@ -1,5 +1,5 @@
 import { TestBed } from "@angular/core/testing";
-import { provideHttpClient } from "@angular/common/http";
+import { HttpClient, provideHttpClient } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
@@ -10,17 +10,14 @@ import { provideHttpClientTesting } from "@angular/common/http/testing";
 
 describe("AppComponent", () => {
   beforeEach(async () => {
-
     await TestBed.configureTestingModule({
-      imports: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent,
-        MainModule
+      imports: [AppComponent, HeaderComponent, FooterComponent, MainModule],
+      providers: [
+        MainContentService,
+        provideHttpClient(),
+        provideHttpClientTesting(),
       ],
-      providers: [MainContentService,provideHttpClient(),
-        provideHttpClientTesting(),],
-      schemas: [NO_ERRORS_SCHEMA], // Ignore unknown elements and attributes
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
