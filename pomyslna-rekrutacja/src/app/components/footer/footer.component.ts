@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  HostListener,
+} from "@angular/core";
 import { MainContentService } from "../main/services/main-content.service";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
@@ -17,11 +23,18 @@ export class FooterComponent {
 
   constructor(private mainContentService: MainContentService) {}
 
+  @HostListener("document:click")
+  clickEventToHideMenu() {
+    this.isChecked = false;
+  }
+
   resetContent() {
+    // this.isChecked = false;
     this.mainContentService.resetToStartSettings();
   }
 
   switchPersonalDataVisibility() {
+    // this.isChecked = false;
     this.showPersonalDataEmitter.emit();
   }
 }

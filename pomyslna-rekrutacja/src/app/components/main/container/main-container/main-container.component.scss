@@ -1,6 +1,6 @@
 @import "../../../../../utilities/constants";
 
-main {
+.main {
   padding: $footer-height $padding-horizontal 0 $padding-horizontal;
   min-height: calc(100vh - $header-height - $footer-height);
   display: flex;
@@ -9,7 +9,7 @@ main {
   align-items: center;
   overflow: hidden;
 
-  .title {
+  &__title {
     width: -moz-fit-content;
     width: fit-content;
     display: inline-block;
@@ -29,7 +29,7 @@ main {
     }
   }
 
-  .main-container {
+  &__container {
     width: 100%;
     padding: 2rem;
     display: flex;
@@ -37,7 +37,7 @@ main {
     align-items: flex-start;
 
     > * {
-      width: 33.33%;
+      width: 30%;
     }
 
     @media (max-width: 960px) {
@@ -45,14 +45,13 @@ main {
       justify-content: center;
       align-items: flex-start;
 
-
-      > app-main-options,
-      > app-main-tools {
+      > .main__options,
+      > .main__tools {
         order: 1;
         width: 50%;
       }
 
-      > app-main-description {
+      > .main__description {
         order: 2;
         width: 100%;
         margin-top: 1rem;

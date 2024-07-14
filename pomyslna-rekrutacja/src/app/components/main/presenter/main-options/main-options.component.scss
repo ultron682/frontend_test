@@ -1,72 +1,75 @@
 @import "../../../../../utilities/constants";
 
-.block-first-container {
+.block-first {
   display: flex;
   gap: 10px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 
-  h2 {
+  &__header {
     width: 100%;
     text-align: center;
     display: block;
   }
-}
 
-.radio-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Space between radio buttons */
-}
+  &__form {
+    width: 100%;
+  }
 
-.radio-label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
+  &__radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between radio buttons */
+  }
 
-.radio-input {
-  display: none; /* Hide default radio button */
-}
+  &__radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
 
-.radio-custom {
-  width: 20px;
-  height: 20px;
-  border: 3px solid #fff;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  margin-right: 10px;
-  transition: border-color 0.3s;
+  &__radio-input {
+    display: none; /* Hide default radio button */
 
-  .radio-input:checked + &::after {
-    content: "";
-    width: 10px;
-    height: 10px;
+    &:checked + .block-first__radio-custom::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:checked + .block-first__radio-custom + .block-first__radio-text {
+      font-weight: bold;
+    }
+  }
+
+  &__radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #fff;
     border-radius: 50%;
-    background-color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    transition: border-color 0.3s;
   }
-}
 
-.radio-text {
-  font-size: 18px;
-  transition: color 0.3s;
-}
+  &__radio-text {
+    font-size: 18px;
+    transition: color 0.3s;
+  }
 
-.radio-input:checked + .radio-custom + .radio-text {
-  font-weight: bold;
-}
-
-@media (max-width: 960px) {
-  .block-first-container {
+  @media (max-width: 960px) {
     align-items: flex-start;
-  }
-  h2 {
-    text-align: left !important;
+
+    &__header {
+      text-align: left !important;
+    }
   }
 }
