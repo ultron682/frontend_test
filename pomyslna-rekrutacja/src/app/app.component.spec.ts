@@ -9,13 +9,7 @@ import { EventEmitter } from "@angular/core";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 
 describe("AppComponent", () => {
-  let mainContentServiceMock: MainContentService;
-
   beforeEach(async () => {
-    mainContentServiceMock = {
-      // Mock the observable with EventEmitter
-      onResetState: new EventEmitter(),
-    } as MainContentService; // Type assertion
 
     await TestBed.configureTestingModule({
       imports: [
@@ -55,11 +49,11 @@ describe("AppComponent", () => {
 
   it("should set showPersonalDataContent to false when onResetState is triggered", () => {
     const fixture = TestBed.createComponent(AppComponent);
+    const service = fixture.debugElement.injector.get(MainContentService);
     const app = fixture.componentInstance;
 
     app.showPersonalDataContent = true;
-    mainContentServiceMock.onResetState.emit();
-    fixture.detectChanges();
+    service.onResetState.emit();
 
     expect(app.showPersonalDataContent).toBeFalse();
   });
