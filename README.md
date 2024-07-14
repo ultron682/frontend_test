@@ -6,8 +6,11 @@ I tried to use as many Angular tools as possible that the framework provides. I 
 
 I managed to complete all the main requirements and all the additional tasks along with the task for 6.
 
-All elements of the application are very close to the given jpg files.
+All elements of the application are very close to the given jpg files. Below are screenshots of the working website.
 
+![image](https://github.com/user-attachments/assets/0c1e00df-fb1b-49bb-b64b-5e0b4a8aaf4a)
+![image](https://github.com/user-attachments/assets/a3ce5c6b-1916-4423-8551-f52a4cf2e2b4)
+![image](https://github.com/user-attachments/assets/b34b53fa-a155-4333-9d47-e70b3eadd14a)
 
 
 
