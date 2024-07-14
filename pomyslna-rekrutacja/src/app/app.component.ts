@@ -14,7 +14,6 @@ import { MainContentService } from "./components/main/services/main-content.serv
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {
-  title = "pomyslna-rekrutacja";
   showPersonalDataContent = false;
 
   constructor(private mainContentService: MainContentService) {

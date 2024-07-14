@@ -1,48 +1,48 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { MainModule } from './components/main/main.module';
-import { MainContentService } from './components/main/services/main-content.service';
-import { of } from 'rxjs';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { TestBed } from "@angular/core/testing";
+import { HttpClientModule } from "@angular/common/http";
+import { AppComponent } from "./app.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { MainModule } from "./components/main/main.module";
+import { MainContentService } from "./components/main/services/main-content.service";
+import { EventEmitter } from "@angular/core";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
-describe('AppComponent', () => {
-  let mainContentServiceMock: jasmine.SpyObj<MainContentService>;
+describe("AppComponent", () => {
+  let mainContentServiceMock: MainContentService;
 
   beforeEach(async () => {
-    mainContentServiceMock = jasmine.createSpyObj('MainContentService', ['onResetState']);
-    mainContentServiceMock.onResetState = of(); // Mock the observable
+    mainContentServiceMock = {
+      // Mock the observable with EventEmitter
+      onResetState: new EventEmitter(),
+    } as MainContentService; // Type assertion
 
     await TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      imports: [HeaderComponent, FooterComponent, MainModule],
-      providers: [
-        { provide: MainContentService, useValue: mainContentServiceMock }
+      imports: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        MainModule,
+        HttpClientModule,
       ],
-      schemas: [NO_ERRORS_SCHEMA] // Ignore unknown elements and attributes
+      providers: [MainContentService],
+      schemas: [NO_ERRORS_SCHEMA], // Ignore unknown elements and attributes
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it("should create the app", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'pomyslna-rekrutacja'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('pomyslna-rekrutacja');
-  });
-
-  it('should initialize showPersonalDataContent to false', () => {
+  it("should initialize showPersonalDataContent to false", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.showPersonalDataContent).toBeFalse();
   });
 
-  it('should toggle showPersonalDataContent when switchVisibilityPersonalData is called', () => {
+  it("should toggle showPersonalDataContent when switchVisibilityPersonalData is called", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
@@ -53,14 +53,13 @@ describe('AppComponent', () => {
     expect(app.showPersonalDataContent).toBeFalse();
   });
 
-  it('should set showPersonalDataContent to false when onResetState is triggered', () => {
-    mainContentServiceMock.onResetState.subscribe.and.callFake((callback: () => void) => callback());
-
+  it("should set showPersonalDataContent to false when onResetState is triggered", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
     app.showPersonalDataContent = true;
-    mainContentServiceMock.onResetState.subscribe();
+    mainContentServiceMock.onResetState.emit();
+    fixture.detectChanges();
 
     expect(app.showPersonalDataContent).toBeFalse();
   });
