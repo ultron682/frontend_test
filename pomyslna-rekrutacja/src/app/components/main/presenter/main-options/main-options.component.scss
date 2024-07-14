@@ -11,6 +11,7 @@
     width: 100%;
     text-align: center;
     display: block;
+    text-transform: uppercase;
   }
 
   &__form {
@@ -46,6 +47,7 @@
 
     &:checked + .block-first__radio-custom + .block-first__radio-text {
       font-weight: bold;
+      color: white;
     }
   }
 
@@ -57,12 +59,14 @@
     display: inline-block;
     position: relative;
     margin-right: 10px;
-    transition: border-color 0.3s;
+    transition: border-color 0.1s;
   }
 
   &__radio-text {
     font-size: 18px;
-    transition: color 0.3s;
+    transition: color 0.1s;
+    color: $font-color-second;
+    font-weight: bold;
   }
 
   @media (max-width: 960px) {

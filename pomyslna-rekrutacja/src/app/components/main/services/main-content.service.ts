@@ -2,7 +2,6 @@ import { Row } from "./../../../shared/models/Row";
 import { Injectable, Output, EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
-import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Option } from "../enums/options";
 import { BehaviorSubject } from "rxjs";

@@ -9,6 +9,7 @@
   background-color: $background-footer-color;
   padding: 0 $padding-horizontal;
   position: relative;
+  z-index: 100;
 
   &__left-container {
     height: 100%;
@@ -44,8 +45,6 @@
         border: 1px solid $secondary-color;
         transition: all 0.5s linear;
         z-index: 100;
-
-
       }
 
       .footer__text-container {
@@ -70,7 +69,7 @@
 
   &__center {
     .footer__title {
-      font-size: 2rem;
+      font-size: 1.7rem;
       color: $secondary-color;
     }
     .footer__title::before,
@@ -80,7 +79,7 @@
       border-top: 0.3rem solid black;
       width: 4rem;
       margin: 0 1rem;
-      transform: translateY(-0.5rem);
+      transform: translateY(-0.3rem);
     }
   }
 
@@ -101,6 +100,7 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
+        animation: slide-up 0.1s;
       }
     }
 
@@ -145,7 +145,6 @@
       height: 6em;
       display: none;
       position: absolute;
-      bottom: calc((100% / 2) + ($footer-height / 2));
       right: 0;
       left: 0;
       background-color: #ffffff;
@@ -153,14 +152,15 @@
       border: 2px solid #444;
       border-radius: 5px;
       overflow: hidden;
-      z-index: 1000;
+      z-index: 10;
+      bottom: calc((100% / 2) + ($footer-height / 2));
 
       @media (max-width: 960px) {
         left: -10em;
       }
 
       .footer__dropdown-item {
-        padding: 10px 20px;
+        padding: 5px 20px;
         color: black;
         text-decoration: none;
         justify-content: center;
@@ -189,5 +189,16 @@
   @media (max-width: 960px) {
     width: calc(100% - ($padding-horizontal));
     padding: 0 calc($padding-horizontal / 2);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    bottom: calc($footer-height / 2);
+    opacity: 0;
+  }
+  to {
+    bottom: calc((100% / 2) + ($footer-height / 2));
+    opacity: 1;
   }
 }

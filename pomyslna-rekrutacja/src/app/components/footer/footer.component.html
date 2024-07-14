@@ -21,26 +21,26 @@
     />
     <label for="dropdown-toggle" class="footer__dropdown-label">
       <ng-container *ngIf="isChecked; else elseText">
-        UKRYJ
-        <span class="material-symbols-outlined">keyboard_arrow_up</span>
+        <b>UKRYJ</b>
+        <span class="material-symbols-outlined">keyboard_arrow_down</span>
       </ng-container>
       <ng-template #elseText>
-        POKAŻ
-        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+        <b>POKAŻ</b>
+        <span class="material-symbols-outlined">keyboard_arrow_up</span>
       </ng-template>
     </label>
     <div class="footer__dropdown-menu">
       <button (click)="resetContent()" class="footer__dropdown-item">
         <span class="material-symbols-outlined">keyboard_arrow_right</span>
-        ZRESETUJ USTAWIENIA
+        <b>ZRESETUJ USTAWIENIA</b>
       </button>
       <button (click)="switchPersonalDataVisibility()" class="footer__dropdown-item">
         <span class="material-symbols-outlined">keyboard_arrow_right</span>
         <ng-container *ngIf="!showPersonalDataContent; else elseshowPersonalDataContent">
-          <span>POKAŻ DANE OSOBOWE</span>
+          <span><b>POKAŻ DANE OSOBOWE</b></span>
         </ng-container>
         <ng-template #elseshowPersonalDataContent>
-          <span>UKRYJ DANE OSOBOWE</span>
+          <span><b>UKRYJ DANE OSOBOWE</b></span>
         </ng-template>
       </button>
     </div>
